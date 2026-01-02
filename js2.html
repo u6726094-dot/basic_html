@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Filter Names by Letter</title>
+</head>
+<body>
+
+  <h2>Filter Names Starting With a Letter</h2>
+
+  <label>Enter a letter:</label>
+  <input type="text" id="letterInput" maxlength="1">
+  <button onclick="filterNames()">Filter</button>
+
+  <h3>Result:</h3>
+  <ul id="resultList"></ul>
+
+  <script>
+    const people = [
+      "Alice Anderson",
+      "Aaron Adams",
+      "Bella Brown",
+      "Brian Black",
+      "Cathy Carter",
+      "Charles Cooper",
+      "Diana Davis",
+      "Daniel Drake",
+      "Ella Evans",
+      "Ethan Edwards",
+      "Fiona Fisher",
+      "Frank Foster",
+      "Grace Green",
+      "Gavin Gray",
+      "Hannah Harris",
+      "Henry Hill",
+      "Isabella Ingram",
+      "Ian Irving",
+      "Jack Johnson",
+      "Julia James"
+    ];
+
+    function filterNames() {
+      const letter = document.getElementById("letterInput").value.toUpperCase(); 
+
+      const result = people.filter((name) => {
+        return name.charAt(0).toUpperCase() === letter;
+      });
+
+      // Display the result
+      const list = document.getElementById("resultList");
+      list.innerHTML = ""; // clear old results
+
+      result.forEach((name) => {
+        list.innerHTML += `<li>${name}</li>`;
+      });
+    }
+  </script>
+
+</body>
+</html>
